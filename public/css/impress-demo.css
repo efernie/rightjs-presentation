@@ -428,11 +428,29 @@ a:hover {
 .codeSlide p{
   margin: 0 0 0 40px;
 }
-code.rightjs b, code.rightjs b *{
+code{
+  font-size: 32px;
+}
+/*code.rightjs b, code.rightjs b *{
   color: blue;
 }
 code.jquery b, code.jquery b *{
   color: red;
+}*/
+.rightjs{
+  color: blue;
+}
+.jquery{
+  color: red;
+}
+.funcName{
+  color: green;
+}
+.func{
+  color:purple;
+}
+.otherName{
+  color: orange;
 }
 /* on overview step everything is visible */
 
