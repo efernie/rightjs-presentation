@@ -431,6 +431,17 @@ a:hover {
 code{
   font-size: 32px;
 }
+.codeExample{
+  background: rgb(255,250,205);
+  font-size: 18px;
+  padding: 0 0 0 10px;
+}
+#ajax{
+  width: 1000px;
+}
+#ajax .syntaxhighlighter{
+  height: 400px;
+}
 /*code.rightjs b, code.rightjs b *{
   color: blue;
 }
