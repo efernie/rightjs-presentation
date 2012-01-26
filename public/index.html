@@ -4,12 +4,16 @@
   <head>
     <meta charset="utf-8" />
     <title>RightJS - High Performance JavaScript</title>
-    <meta name="description"
-    content="right js javascript">
+    <meta name="description" content="right js javascript">
     <meta name="author" content="Bartek Szopka" />
     <link href="http://fonts.googleapis.com/css?family=Duru+Sans" rel="stylesheet" />
 
     <script src="http://cdn.rightjs.org/right.js"></script>
+    <script src="js/right-lightbox.js"></script>
+    <script src="http://rightjs.org/builds/ui/right-tooltips.js"></script>
+    <script src="http://rightjs.org/builds/ui/right-dialog.js"></script>
+    <script src="http://rightjs.org/builds/ui/right-calendar-src.js"></script>
+    <script src="js/script.js"></script>
 
     <script type="text/javascript" src="js/shCore.js"></script>
     <script type="text/javascript" src="js/shBrushJScript.js"></script>
@@ -52,6 +56,9 @@
         <ul>
           <li>-
             <a href="http://www.rightjs.org" target="_blank">RightJS</a>
+            <ul>
+              <li>&nbsp;--Various ui scripts</li>
+            </ul>
           </li>
           <li>-
             <a href="https://github.com/efernie/backbone-rightjs" target="_blank">Backbone.JS (my version)</a>
@@ -120,18 +127,91 @@
       </div>
       <div class="step" data-x="9200" data-y="4500" data-scale="3">
         <h2>UI Extensions</h2>
+        <ul>
+          <li><button id="demoDialog">Dialog</button></li>
+          <li alt="Tooltip" data-tooltip>-Tooltip</li>
+          <li><input class="demo-field" id="date-triggered" type="text"><input src="http://rightjs.org/images/calendar.png" id="date-trigger" type="image"></li>
+        </ul>
       </div>
       <div class="step" data-x="10200" data-y="5500" data-scale="3">
         <h2>XHR</h2>
+        <pre class="brush: js;">
+          new Xhr('/boo/hoo', {
+            method:     'get',
+            onSuccess:  func1,
+            onFailure:  func2,
+            onComplete: func3
+          }).send('some=data');
+
+          $.ajax({
+            url:      '/boo/hoo',
+            type:     'get',
+            data:     'some=data',
+            success:  func1,
+            error:    func2,
+            complete: func3
+          });
+        </pre>
       </div>
-      <div class="step" data-x="11200" data-y="6500" data-scale="3">
+      <div class="step" data-x="11200" data-y="6800" data-scale="3">
         <h2>FX/Animations</h2>
+        <ul>
+          <li id="demoHighlight">-Highlight Me!</li>
+          <li id="demoFade">-Fade Action</li>
+          <li id="demoSlide">-Some Sliding!</li>
+        </ul>
       </div>
-      <div class="step" data-x="12200" data-y="7500" data-scale="3">
+      <div class="step" data-x="12200" data-y="8100" data-scale="3">
         <h2>Lang</h2>
+        <pre class="brush: js;">
+
+          [0,1,[2,3,[4,5,[6,7],8],9]].flatten();
+          // [0,1,2,3,4,5,6,7,8,9];
+
+          Math.random(1000);  // some Integer between 0 and 1000
+
+          var num = -364;
+          num.abs(); // 364
+
+          Object.keys({'a':1, 'b':2, 'c':3})
+          // -> ['a', 'b', 'c']
+        </pre>
       </div>
 
-      <!--<div class="step"></div>-->
+      <div id="introSpeed" class="step" data-x="13200" data-y="9500" data-scale="3">
+          <h2>Speed Tests</h2>
+          <ul>
+            <li>-<a href="#/parentSpeed">Parent</a></li>
+            <li>-<a href="#/classSpeed">Class</a></li>
+            <li>-<a href="#/linuxSpeed">Linux</a></li>
+            <li>-<a href="#/tempSpeed">Templating Engine</a></li>
+          </ul>
+          <a href="#/backbone">Next</a>
+      </div>
+
+      <div id="linuxSpeed" class="step" data-x="27000" data-y="3500" data-scale="3">
+        <h2>Speed Tests on Linux</h2>
+        <a href="img/linuxspeed.jpg" rel="lightbox"> <img src="img/linuxspeed.jpg" /></a>
+        <a href="#/introSpeed" class="speedTests">Back</a>
+      </div>
+
+      <div id="tempSpeed" class="step" data-x="31000" data-y="3000" data-scale="3">
+        <h2>Speed Tests on Template Engines</h2>
+        <a href="img/templatetests2.jpg" rel="lightbox"> <img src="img/templatetests2.jpg" /></a>
+        <a href="#/introSpeed" class="speedTests">Back</a>
+      </div>
+      
+      <div id="parentSpeed" class="step" data-x="34000" data-y="2500" data-scale="3">
+        <h2>Speed Tests on Parents</h2>
+        <a href="img/linuxspeed.jpg" rel="lightbox"> <img src="img/linuxspeed.jpg" /></a>
+        <a href="#/introSpeed" class="speedTests">Back</a>
+      </div>
+
+      <div id="classSpeed" class="step" data-x="38000" data-y="1500" data-scale="3">
+        <h2>Speed Tests on Classes</h2>
+        <a href="img/linuxspeed.jpg" rel="lightbox"> <img src="img/linuxspeed.jpg" /></a>
+        <a href="#/introSpeed" class="speedTests">Back</a>
+      </div>
 
       <div id="backbone" class="step" data-x="15200" data-y="-2000" data-rotate="90" data-scale="3">
         <h2>Using Backbone with RightJS</h2>
@@ -197,61 +277,36 @@
           };
         </pre>
       </div>
+
       <div id="project" class="step" data-x="18000" data-y="3000" data-scale="3">
         <h2>Zuzzim - RightJS with Backbone in Action</h2>
+        <h3>Technologies Used</h3>
+        <ul>
+          <li>-RightJS</li>
+          <li>-Backbone.JS (my version)</li>
+          <li>-CouchDB</li>
+          <li>-<a href="#/tempSpeed">doT Templating Engine</a></li>
+          <li>-Node.js</li>
+        </ul>
       </div>
-      <!-- This element introduces rotation. Notation shouldn't be a surprise.
-      We use `data-rotate="90"` attribute, meaning that this element should be
-      rotated by 90 degrees clockwise. -->
-      <!--<div id="its" class="step" data-x="850" data-y="3000" data-rotate="90"
-      data-scale="5">
-        <p>It's a <strong>presentation tool</strong> <br/>
-        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
-    </div>
 
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
-    </div>-->
-      <!-- And now it gets really exiting! We move into third dimension! Along
-      with `data-x` and `data-y`, you can define the position on third (Z) axis,
-      with `data-z`. In the example below we use `data-z="-3000"` meaning that
-      element should be positioned far away from us (by 3000px). -->
-      <!--<div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000"
-      data-rotate="300" data-scale="1">
-        <p>and <b>tiny</b> ideas</p>
-    </div>
+      <div class="step" data-x="21000" data-y="4000" data-scale="3">
+        <h2>What is Zuzzim?</h2>
+        <ul>
+          <li><a href="http://50.57.226.164/" target="">Zuzzim.com</a></li>
 
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
-    </div>
-
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-    </div>
-
-    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
-    </div>
-
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <p>one more thing...</p>
-    </div>-->
-      <!-- And the last one shows full power and flexibility of impress.js.
-      You can not only position element in 3D, but also rotate it around any
-      axis. So this one here will get rotated by -40 degrees (40 degrees anticlockwise)
-      around X axis and 10 degrees (clockwise) around Y axis. You can of course
-      rotate it around Z axis with `data-rotate-z` - it has exactly the same
-      effect as `data-rotate` (these two are basically aliases). -->
-      <div id="its-in-3d" class="step" data-x="0" data-y="-3500" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+        </ul>
+      </div>
+      
+      <div class="step" data-x="-5000" data-y="4000" data-scale="2" data-z="-4000">
+        <h2>Code Demo</h2>
+      </div>
+      <div id="thankYou" class="step" data-x="0" data-y="-3500" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
         <p>
           <span class="have">Thank</span>
           <span class="you">You</span>
           <span class="noticed">!</span>
-          <!--<span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?-->
         </p>
-        <!-- <span class="footnote">* beat that, prezi ;)</span>-->
       </div>
 
       <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="15"></div>
